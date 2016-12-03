@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/tmpl.js"></script>
+    <script src="js/dist/script.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <script type="text/template" id="test">
+      <h4 class="header">Тест</h4>
+
+      <% for(var i = 0; i < questions.length; i++) { %>
+        <div class="block<%= (i+1) %>">
+          <h4><%= (i+1) + '. ' + questions[i].title %></h4>
+          <% for(var j = 0; j < questions[i].answers.length; j++) { %>
+          <label class="answ">
+            <input type="checkbox" value="<%= j %>" />
+            <%= questions[i].answers[j] %>
+          </label>
+          <% } %>
+        </div>
+      <% } %>
+
+      <button id="subButton" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Проверить мои результаты</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Результаты теста</h4>
+            </div>
+            <div class="modal-body">
+              <p></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </script>
+
+
+
+  </body>
+</html>
